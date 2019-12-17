@@ -1,10 +1,10 @@
+clc;
 clear;
 p=[0.9,  -0.9,  -0.4,  -0.7,  0.5,  0.4,  0.001,  -0.1];
-j = 4;
-U0=p(j);
-yd=[7, 0.5];
-t0=0; 
-T=10; 
+U0=p(8); 
+yd=[7, 0.5]; 
+t0=0;
+T=10;
 y0=[5, 0.3]; 
 yMax=[8, 0.6];
 bLower=U0-0.1*abs(U0);
@@ -24,8 +24,8 @@ params.n=n;
 params.U=b0;
 params.b0=b0;
 params.step=(T-t0)/n;
-params.j=j;
-
+params.j=8;
+%Slove direct problem
 sol=DirectProblem(params);
 params.sol=sol;
 params.t=sol.x;
@@ -44,12 +44,12 @@ toc;
 %DDM
 disp('DDM:');
 tic;
-[Psi0_ddm, Psi1_ddm] = DDM(params)
+[Psi0_ddm, Psi1_ddm]=DDM(params)
 toc;
 % %AM
 disp('AM:');
 tic;
-[Psi0_am, Psi1_am] = AM(params)
+[Psi0_am, Psi1_am]=AM(params)
 toc;
 %----------------------------------------------
 %Optimization 
@@ -67,8 +67,8 @@ toc;
 %PlotOptimal(params,bnew)
 %-----------------------------------------------
 %find optimal values of optimization parameters (without constraints)
-% disp('Optimal values of optimization parameters:')
-% bopt=OptimalOptimization(params);
-% %-------------------------------------------------------
-% % plot control function 
-% PlotControlFunction(params,bopt);
+%disp('Optimal values of optimization parameters:')
+%bopt=OptimalOptimization(params);
+%-------------------------------------------------------
+% plot control function 
+%PlotControlFunction(params,bopt);

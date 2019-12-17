@@ -1,8 +1,9 @@
+clc;
 clear;
 p=[0.9,  -0.9,  -0.4,  -0.7,  0.5,  0.4,  0.001,  -0.1];
-j = 4;
-U0=p(j);
-yd=[7, 0.5];
+j = 5;
+U0=p(j); 
+yd=[7, 0.5]; 
 t0=0; 
 T=10; 
 y0=[5, 0.3]; 
@@ -25,7 +26,7 @@ params.U=b0;
 params.b0=b0;
 params.step=(T-t0)/n;
 params.j=j;
-
+%Slove direct problem
 sol=DirectProblem(params);
 params.sol=sol;
 params.t=sol.x;
@@ -44,12 +45,12 @@ toc;
 %DDM
 disp('DDM:');
 tic;
-[Psi0_ddm, Psi1_ddm] = DDM(params)
+[Psi0_ddm, Psi1_ddm]=DDM(params)
 toc;
 % %AM
 disp('AM:');
 tic;
-[Psi0_am, Psi1_am] = AM(params)
+[Psi0_am, Psi1_am]=AM(params)
 toc;
 %----------------------------------------------
 %Optimization 
