@@ -26,8 +26,8 @@ else
     end
 end
 
-dudb=[(y(1).*(1-exp(-params.p(5).*y(1)))*(y(2)/(params.p(6)+params.p(7)*y(2)))).*coef;
-    ((params.p(8)*y(1)*(1-exp(-params.p(5)*y(1)))*(y(2)/(params.p(6)+params.p(7)*y(2))))).*coef];
+dudb=[coef;
+    ((params.p(4)*y(1)*(1-exp(-params.p(5)*y(1)))*(y(2)/(params.p(6)+params.p(7)*y(2))))).*coef];
 
 end
 

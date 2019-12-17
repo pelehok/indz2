@@ -11,7 +11,7 @@ df2dy2= params.p(2) + 2*params.p(3)*y(2) - (params.p(4)*params.p(8)*y(1)*(exp(-p
     (params.p(6) + params.p(7)*y(2))^2;
 dfdy=[df1dy1, df1dy2;
       df2dy1, df2dy2];
-g0=[(zeros(1,size(y,2)))', 2*y(1,:)'-14];
+g0=[(zeros(1,size(y,2)))', 2*y(1,:)'-1];
 dm=-dfdy' * m - g0';
 end
 

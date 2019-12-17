@@ -8,9 +8,9 @@ for j=1:params.n+1
     linsp = linspace (params.t0, params.T, 100);
     zi=deval(solDDM, linsp);
     y=deval(params.sol, linsp);
-    g0=[(zeros(1,size(y,2)))', 2*y(1,:)'-14];
-    g1=[2*(abs(y(2,:)-params.yMax(2))+y(2,:)-params.yMax(2))'.*...
-    (sign(y(2,:)-params.yMax(2))+1)', (zeros(1,size(y,2)))'];
+    g0=[(zeros(1,size(y,2)))', 2*y(2,:)'-1];
+    g1=[2*(abs(y(1,:)-params.yMax(1))+y(1,:)-params.yMax(1))'.*...
+    (sign(y(1,:)-params.yMax(1))+1)', (zeros(1,size(y,2)))'];
     constreint(j) = trapz(linsp',g1(:,1).*zi(1,:)');
     SA(j) = trapz(linsp', g0(:,2).*zi(2,:)');
 end

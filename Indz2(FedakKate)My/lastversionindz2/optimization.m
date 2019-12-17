@@ -1,14 +1,14 @@
 function b = optimization(params,s,yConstraint,bConstraint)
-if strcmp(s,'FDM')
-  opt=@optFDM;
-end
-if strcmp(s,'DDM')
-  opt=@optDDM; 
-end
-if strcmp(s,'AM')
-  opt=@optAM; 
-end
-nonlinearconstraint=[];
+    if strcmp(s,'FDM')
+      opt=@optFDM;
+    end
+    if strcmp(s,'DDM')
+      opt=@optDDM; 
+    end
+    if strcmp(s,'AM')
+      opt=@optAM; 
+    end
+    nonlinearconstraint=[];
     if yConstraint
         nonlinearconstraint=@constraintopt;
     end

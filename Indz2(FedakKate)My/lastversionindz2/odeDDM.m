@@ -12,11 +12,6 @@ df2dy2= params.p(2) + 2*params.p(3)*y(2) - (params.p(4)*params.p(8)*y(1)*(exp(-p
 dfdy=[df1dy1, df1dy2;
       df2dy1, df2dy2];
 dfdb=dudbi(t,params,y);
-% dfdb=[(params.p(4).*(y(1)^2).*exp(-params.p(5).*y(1))*...
-%     y(2)./(params.p(6)+params.p(7)*y(2))).*dudb;
-%     (params.p(8)*params.p(4).*(y(1)^2).*exp(-params.p(5).*y(1))*...
-%     y(2)./(params.p(6)+params.p(7)*y(2))).*dudb];
 dz=dfdb + dfdy * z;
-
 end
 
